@@ -53,10 +53,11 @@ const initUserRoutes = (io) => {
         { expiresIn: "24h" }
       );
 
-      io.emit("userConnected", {
-        userId: newUser._id,
-        username: newUser.username,
+      io.emit("userRegistered", {
         fullname: newUser.fullname,
+        username: newUser.username,
+        color: newUser.color,
+        active: true,
       });
 
       res.status(201).json({ message: "User registered successfully", token });
